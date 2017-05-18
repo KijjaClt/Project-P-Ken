@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-segment [(ngModel)]="segment" (ionChange)="ionViewDidEnter()">
+      <ion-segment-button value="inClass">
+        ในห้องเรียน
+      </ion-segment-button>
+      <ion-segment-button value="outClass">
+        นอกห้องเรียน
+      </ion-segment-button>
+    </ion-segment>
+
+    
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-searchbar color="primary"
+                   [(ngModel)]="queryText"
+                   (ionInput)="ionViewDidEnter()"
+                   placeholder="Search">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   <div [ngSwitch]="segment">
+  <ion-list #scheduleList [hidden]="shownSessions === 0" *ngSwitchCase="'inClass'">
+
+    <ion-item-group *ngFor="let n of event" [hidden]="n.hide">
+
+      <ion-item-divider color = "light" sticky >
+        <ion-label>
+          {{n.event_startdate |  date:"HH:mm" }}
+        </ion-label>
+      </ion-item-divider>
+
+      <ion-item>
+          <h3>{{n.event_title}}</h3>
+          <p>
+            {{n.event_startdate |  date:"HH:mm"}} - {{n.event_enddate |  date:"HH:mm"}} น. 
+          </p>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+   </div>
+<div [ngSwitch]="segment">
+     <ion-list *ngSwitchCase="'outClass'"> 
+        <ion-card *ngFor="let n of out " (click)="add(n)" class="feed-article">  
+         <ion-item-group>
+             <ion-item-divider color="primary">{{n.event_title}} 
+                 <ion-avatar item-right text-right>
+                     {{ n.countSum }} / {{n.event_out}}
+                 </ion-avatar>
+            </ion-item-divider> 
+                 <ion-item *ngFor="let i of n.sum ">{{i.sum_type}}   {{i.sum_hour}}  ชม. </ion-item>
+          
+        </ion-item-group>
+      </ion-card>
+     </ion-list>
+    </div>
+</ion-content>

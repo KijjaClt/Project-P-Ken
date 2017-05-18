@@ -1,0 +1,55 @@
+page-news {
+.feed-list {
+    background: #ffffff;
+    .feed-article {
+      
+      height: 100px;
+      background: #ffffff;
+      border-radius: 10px 10px 10px 10px;
+      margin-bottom: 10px;
+      border-top: 0px;
+      color: #000000;
+   
+    }
+    ion-list > .item:first-child, ion-list > .item-wrapper:first-child .item {
+      border-top: 0px;
+    }
+    ion-list .item .item-inner {
+      border-bottom: 0px;
+    }
+    .article-title {
+      margin-top : 5px;
+      font-weight: bold;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      
+    }
+    ion-card-content > p {
+      
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      overflow: hidden;
+      
+      
+      
+    }
+  }
+ 
+  #feed-spinner {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    height: 100px;
+  }
+ 
+  .center-placeholder {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    width: 200px;
+    height: 100px;
+  }
+}
+

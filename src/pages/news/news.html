@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>ข่าว</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="feed-list" padding>
+<ion-card *ngFor="let n of news " class="feed-article">
+  <ion-item>   
+     <ion-avatar item-left text-center>
+   
+      <h1>{{n.news_time |  date:"dd"}}</h1>
+       {{n.news_time |  date:"MMM"}}
+
+    </ion-avatar>
+    <div class="article-title"> <h2>{{n.news_name}}</h2></div>
+     <p>{{n.news_add}}</p>
+      
+  </ion-item>
+  <ion-card-content  >
+    <p>{{n.news_titie}}</p>
+  </ion-card-content>
+
+
+    </ion-card>
+  </ion-content>
+
+
+

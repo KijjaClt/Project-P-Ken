@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Inbox</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-fab bottom right #fab *ngIf="is_admin != null">
+    <button ion-fab (click)="Sent()"><ion-icon  name="md-add"></ion-icon></button>
+</ion-fab>
+
+<ion-content class="feed-list" padding>
+  
+<ion-item *ngFor="let n of inbox " class="feed-article" >
+    <ion-item *ngIf="n.align == 0" (click)="SentClick(n.from.admin_id)">
+      <ion-avatar item-left text-center>
+    
+        <h1>{{n.ia_time |  date:"dd"}}</h1>
+        {{n.ia_time |  date:"MMM"}}
+
+      </ion-avatar>
+      <div class="article-title" > <h2>{{n.from.admin_name}}</h2></div>
+      <p></p>
+        <p>{{n.ia_message}}</p>
+    </ion-item>
+
+    <ion-item *ngIf="n.align == 1">   
+      <ion-avatar item-right text-center>
+    
+        <h1>{{n.ia_time |  date:"dd"}}</h1>
+        {{n.ia_time |  date:"MMM"}}
+
+      </ion-avatar>
+      <div style="float: right;" class="article-title"> <h2>{{n.from.admin_name}}</h2></div>
+      <p></p>
+      <br />
+        <div style="float: right;">{{n.ia_message}}</div>
+    </ion-item>
+  
+    
+ 
+
+
+    </ion-item>
+
+
+
+

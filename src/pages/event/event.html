@@ -1,0 +1,28 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>สร้างเหตุการณ์</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="getting-started">
+<ion-list> 
+      <ion-item-group>
+
+      <ion-item>
+          <ion-label>หัวข้อ</ion-label>
+          <ion-input type="text" [(ngModel)]="calendarEvent.event_title"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>เริ่มวันที่และเวลา</ion-label>
+          <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="startDateString"></ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-label>จบวันที่และเวลา</ion-label>
+          <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="endDateString"></ion-datetime>
+      </ion-item>
+      
+     <button ion-button round (click)="add()">ตกลง</button>
+ 
+    </ion-item-group>
+  </ion-list>
+</ion-content>

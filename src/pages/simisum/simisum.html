@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>บันทึกสถิติ</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="getting-started">
+<ion-list> 
+      <ion-item-group>
+      <ion-item>
+          <ion-label>การกระทำ</ion-label>
+           <ion-select [(ngModel)]="selectType" interface="action-sheet" >
+            <ion-option   *ngFor= "let t of typeEx" value="{{t}}">{{t}}</ion-option>
+          </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-label>ระยะเวลา</ion-label>
+           <ion-select [(ngModel)]="selectEx" interface="action-sheet" >
+            <ion-option *ngFor= "let t of maxHour"  value="{{t}}">{{t}} ชม.</ion-option>
+          </ion-select>
+      </ion-item>
+      
+     <button ion-button round (click)="add()">ตกลง</button>
+ 
+    </ion-item-group> 
+    </ion-list>
+   <ion-card *ngFor="let n of sums">
+    <ion-item>   
+     <h2>{{n.sum_type}}</h2>
+     <p>{{n.sum_hour}}</p>
+      
+  </ion-item>
+</ion-card>
+</ion-content>
+
+

@@ -1,0 +1,15 @@
+page-plan {
+
+  ion-card{
+     border-radius: 10px 10px 10px 10px;
+     
+  }
+  
+  @each $track, $value in auxiliary-categories() {
+   ion-item ion-label {
+     border-left: 2px solid $value;
+     padding-left: 10px;
+     color: #387ef5,
+   }
+  }
+}

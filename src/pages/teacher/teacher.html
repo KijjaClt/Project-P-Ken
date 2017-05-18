@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Easy</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>ตารางสอนอาจารย์</h3>
+
+
+<ion-content padding>
+<ion-list>
+  <button ion-item *ngFor="let item of personal " >
+    {{ item.th_name }}
+  </button>  
+</ion-list>
+
